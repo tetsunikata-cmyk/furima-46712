@@ -19,7 +19,7 @@
     <ul class='lists-right'>
       <% if user_signed_in? %>
         <!-- ログイン中：nickname ＋ ログアウト -->
-        <li class="user-nickname"><%= current_user.nickname %> さん</li>
+        <li class="user-nickname"><%= current_user.nickname %> </li>
         <li>
           <%= link_to 'ログアウト',
                       destroy_user_session_path,
