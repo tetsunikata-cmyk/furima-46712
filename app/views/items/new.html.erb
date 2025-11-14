@@ -62,7 +62,7 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:category_id,
-                                  [],
+                                  Category.all,
                                   :id,
                                   :name,
                                   {},
@@ -73,7 +73,7 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:condition_id,
-                                  [],
+                                  Condition.all,
                                   :id,
                                   :name,
                                   {},
@@ -94,7 +94,7 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:postage_type_id,
-                                  [],
+                                  PostageType.all,
                                   :id,
                                   :name,
                                   {},
@@ -105,7 +105,7 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:prefecture_id,
-                                  [],
+                                  Prefecture.all,
                                   :id,
                                   :name,
                                   {},
@@ -116,7 +116,7 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:shipping_day_id,
-                                  [],
+                                  ShippingDay.all,
                                   :id,
                                   :name,
                                   {},
