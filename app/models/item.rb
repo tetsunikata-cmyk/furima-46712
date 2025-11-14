@@ -3,20 +3,19 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  
-   extend ActiveHash::Associations::ActiveRecordExtensions
-    belongs_to :category
-    belongs_to :condition
-    belongs_to :postage_type
-    belongs_to :prefecture
-    belongs_to :shipping_day
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :postage_type
+  belongs_to :prefecture
+  belongs_to :shipping_day
 
   # 必須項目のバリデーション
   with_options presence: true do
     validates :image
     validates :name
     validates :description
-     validates :price
+    validates :price
   end
 
   # ActiveHash（「---」＝ id:1 を選べないようにする）
@@ -35,5 +34,5 @@ class Item < ApplicationRecord
               greater_than_or_equal_to: 300,
               less_than_or_equal_to: 9_999_999
             },
-            allow_blank: true  
+            allow_blank: true
 end
