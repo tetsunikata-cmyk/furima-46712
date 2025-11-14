@@ -2,13 +2,13 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  # ActiveHash を使うカラム（あとでファイルを作る）
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to :category
-  # belongs_to :condition
-  # belongs_to :postage_type
-  # belongs_to :prefecture
-  # belongs_to :shipping_day
+  
+   extend ActiveHash::Associations::ActiveRecordExtensions
+    belongs_to :category
+    belongs_to :condition
+    belongs_to :postage_type
+    belongs_to :prefecture
+    belongs_to :shipping_day
 
   # ⭐ 必須項目のバリデーション
   with_options presence: true do
