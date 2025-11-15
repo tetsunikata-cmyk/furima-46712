@@ -10,8 +10,6 @@ const setupPriceCalc = () => {
   const addTaxPrice = document.getElementById("add-tax-price");
   const profit = document.getElementById("profit");
 
-  // 読み込まれたか確認
-  console.log("item_price.js loaded");
 
   // ③ 価格入力欄の値が変わるたびに処理を実行
   priceInput.addEventListener("input", () => {
@@ -40,3 +38,4 @@ const setupPriceCalc = () => {
 // ⑦ ページ読み込み時に上の関数を実行
 window.addEventListener("load", setupPriceCalc);
 document.addEventListener("turbo:load", setupPriceCalc);
+window.addEventListener("turbo:render", setupPriceCalc);
