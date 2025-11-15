@@ -129,13 +129,17 @@
     </div>
 
     <ul class='item-lists'>
+
       <% if @items.present? %>
         <% @items.each do |item| %>
           <li class='list'>
-            <%= link_to '#', class: 'item-link' do %>
+            <%= link_to item_path(item) do %>
               <div class='item-img-content'>
-                <%# 商品画像 %>
-                <%= image_tag item.image, class: "item-img" %>
+                <% if item.image.attached? %>
+                  <%= image_tag item.image, class: "item-img" %>
+                <% else %>
+                  <%= image_tag "item-sample.png", class: "item-img" %>
+                <% end %>
 
                 <%# 🔜 購入機能実装後に本物の条件に変える想定 %>
                 <%#
