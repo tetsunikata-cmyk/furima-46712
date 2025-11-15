@@ -138,11 +138,13 @@
                 <%= image_tag item.image, class: "item-img" %>
 
                 <%# 🔜 購入機能実装後に本物の条件に変える想定 %>
-                <% if item.respond_to?(:buyer_id) && item.buyer_id.present? %>
+                <%#
+                 if item.buyer_id.present?
                   <div class='sold-out'>
                     <span>Sold Out!!</span>
                   </div>
-                <% end %>
+                end 
+                %>
               </div>
 
               <div class='item-info'>
