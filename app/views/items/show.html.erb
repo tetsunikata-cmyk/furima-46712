@@ -9,7 +9,6 @@
 
     <div class="item-img-content">
       <%= image_tag @item.image, class:"item-box-img" %>
-      <%# 🔜 購入機能実装後、売却済み商品の場合は「Sold Out!!」を表示 %>
       <% if @item.order.present? %>
         <div class="sold-out">
           <span>Sold Out!!</span>
@@ -27,7 +26,7 @@
     </div>
 
     <%# ボタンまわりの条件分岐 %>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && @item.order.blank?%>
       <% if current_user.id == @item.user_id %>
         <%# ログインユーザーと出品者が同じ場合 %>
         <%= link_to "商品の編集", edit_item_path(@item), class: "item-red-btn" %>
@@ -105,10 +104,10 @@
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">
-      ＜ 前の商品
+       < 前の商品
     </a>
     <a href="#" class="change-item-btn">
-      後ろの商品 ＞
+      後ろの商品 >
     </a>
   </div>
   <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
