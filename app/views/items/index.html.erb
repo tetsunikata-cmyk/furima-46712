@@ -141,14 +141,11 @@
                   <%= image_tag "item-sample.png", class: "item-img" %>
                 <% end %>
 
-                <%# 🔜 購入機能実装後に本物の条件に変える想定 %>
-                <%#
-                 if item.buyer_id.present?
-                  <div class='sold-out'>
-                    <span>Sold Out!!</span>
-                  </div>
-                end 
-                %>
+               <% if item.order.present? %>
+                 <div class='sold-out'>
+                  <span>Sold Out!!</span>
+                 </div>
+               <% end %>
               </div>
 
               <div class='item-info'>

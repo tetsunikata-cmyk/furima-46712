@@ -6,15 +6,17 @@
     <h2 class="name">
       <%= @item.name %>
     </h2>
+
     <div class="item-img-content">
       <%= image_tag @item.image, class:"item-box-img" %>
-      <%# 🔜 購入機能実装後、売却済み商品の場合は下記を表示 %>
-      <%# if @item.buyer.present? %>
-        <%# <div class="sold-out"> %>
-          <%# <span>Sold Out!!</span> %>
-        <%# </div> %>
-      <%# end %>
+      <%# 🔜 購入機能実装後、売却済み商品の場合は「Sold Out!!」を表示 %>
+      <% if @item.order.present? %>
+        <div class="sold-out">
+          <span>Sold Out!!</span>
+        </div>
+      <% end %>
     </div>
+
     <div class="item-price-box">
       <span class="item-price">
         ¥ <%= @item.price %>
@@ -24,6 +26,7 @@
       </span>
     </div>
 
+    <%# ボタンまわりの条件分岐 %>
     <% if user_signed_in? %>
       <% if current_user.id == @item.user_id %>
         <%# ログインユーザーと出品者が同じ場合 %>
@@ -33,12 +36,12 @@
                 data: { turbo_method: :delete },
                 class: "item-destroy" %>
 
-      <% else %>
-        <%# ログインユーザーと出品者が違う、かつ、未購入の場合 %>
-        <%# 🔜 購入機能実装後、売却済み商品の場合は下記を非表示 %>
-        <%# if @item.buyer.blank? %>
-          <%= link_to "購入画面に進む", item_orders_path(@item) ,data: { turbo: false },class:"item-red-btn"%>
-        <%# end %>
+      <% elsif @item.order.blank? %>
+        <%# ログインユーザーと出品者が違う、かつ、未購入の場合だけ購入ボタンを表示 %>
+        <%= link_to "購入画面に進む",
+                    item_orders_path(@item),
+                    data: { turbo: false },
+                    class:"item-red-btn" %>
       <% end %>
     <% end %>
 
