@@ -86,6 +86,13 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
+
+      it 'phone_numberが9桁以下だと購入できない' do
+        @order_address.phone_number = '123456789'  # 9桁
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number is invalid")
+      end
+      
     end
   end
 end
