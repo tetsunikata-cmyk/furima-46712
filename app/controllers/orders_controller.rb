@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   def create
     @order_address = OrderAddress.new(order_address_params)
     if @order_address.valid?
-      pay_item                # ←★★ここで決済が動く！！
+      pay_item               
       @order_address.save
       redirect_to root_path
     else
@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
   private
 
   def pay_item
-    # 本番前に消す
+    
     return unless Rails.env.production?
 
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
@@ -50,7 +50,6 @@ class OrdersController < ApplicationController
   end
 
   def move_to_root
-    # 出品者本人、または売り切れならトップへ
     if current_user.id == @item.user_id || @item.order.present?
       redirect_to root_path
     end

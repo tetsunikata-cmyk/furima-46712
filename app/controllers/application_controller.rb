@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  # テスト以外の環境でBasic認証をかける
   before_action :basic_auth, unless: -> { Rails.env.test? }
   before_action :configure_permitted_parameters, if: :devise_controller?
 

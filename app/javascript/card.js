@@ -8,7 +8,6 @@
     return;
   }
   const publicKey = publicKeyMeta.getAttribute("content");
-
   const payjp = Payjp(publicKey);
   const elements = payjp.elements();
   const numberElement = elements.create("cardNumber");
