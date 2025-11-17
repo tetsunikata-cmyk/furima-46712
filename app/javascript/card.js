@@ -1,13 +1,12 @@
-  const setupPayjp = () => {
+const setupPayjp = () => {
   const form = document.getElementById("charge-form");
   if (!form) return;
 
   const publicKeyMeta = document.querySelector('meta[name="payjp-public-key"]');
-  if (!publicKeyMeta) {
-    console.error("PAYJP 公開鍵の meta タグが見つかりません");
-    return;
-  }
+  if (!publicKeyMeta) return;
+
   const publicKey = publicKeyMeta.getAttribute("content");
+
   const payjp = Payjp(publicKey);
   const elements = payjp.elements();
   const numberElement = elements.create("cardNumber");
@@ -31,13 +30,13 @@
         let tokenField = document.getElementById("card-token");
         if (!tokenField) {
           tokenField = document.createElement("input");
-          tokenField.type = "hidden";
-          tokenField.name = "token";
-          tokenField.id = "card-token";
+          tokenField.setAttribute("type", "hidden");
+          tokenField.setAttribute("name", "token");
+          tokenField.setAttribute("id", "card-token");
           form.appendChild(tokenField);
         }
-        tokenField.value = token;
 
+        tokenField.value = token;
         form.submit();
       }
     });
