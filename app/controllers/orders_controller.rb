@@ -20,11 +20,13 @@ class OrdersController < ApplicationController
   private
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    # 本番前に消す
+    return unless Rails.env.production?
 
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: @item.price,                   # 商品の値段
-      card: order_address_params[:token],    # JSで作った token
+      amount: @item.price,                   
+      card: order_address_params[:token],   
       currency: 'jpy'
     )
   end
