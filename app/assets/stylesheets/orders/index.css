@@ -155,3 +155,13 @@
   font-size: 14px;
   cursor: pointer;
 }
+
+#number-form,
+#expiry-form,
+#cvc-form {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}

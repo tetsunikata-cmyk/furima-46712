@@ -8,6 +8,11 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_importmap_tags %>
+  <%= include_gon %>
+  <meta name="payjp-public-key" content="<%= ENV['PAYJP_PUBLIC_KEY'] %>">
+  <script src="https://js.pay.jp/v2/"></script>
+  
+ 
 </head>
 
 <body>
