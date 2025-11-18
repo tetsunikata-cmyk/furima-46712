@@ -13,20 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- #error_explanation {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#error_explanation ul {
-  display: inline-block; /* 中央に見えるようにする */
-  text-align: left;      /* リストの中身は左揃え */
-  padding-left: 20px;
-}
-
-#error_explanation li {
-  color: #ea352d; /* 赤文字 */
-  font-weight: bold;
-  margin-bottom: 5px;
-}
