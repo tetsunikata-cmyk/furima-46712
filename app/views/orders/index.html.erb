@@ -1,3 +1,27 @@
+ <%= render "shared/second-header" %>
+
+   <div class="transaction-contents">
+   <div class="transaction-main">
+
+    <h1 class="transaction-title-text">購入内容の確認</h1>
+
+    <div class="buy-item-info">
+      <%= image_tag @item.image, class: "buy-item-img" %>
+
+      <div class="buy-item-right-content">
+        <p class="buy-item-text"><%= @item.name %></p>
+        <div class="buy-item-price">
+          <p class="item-price-text">¥ <%= @item.price %></p>
+          <p class="item-price-sub-text"><%= @item.postage_type.name %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-payment">
+      <p class="item-payment-title">支払金額</p>
+      <p class="item-payment-price">¥ <%= @item.price %></p>
+    </div>
+  
     <%= form_with model: @order_address,
                   url: item_orders_path(@item),
                   id: 'charge-form',
