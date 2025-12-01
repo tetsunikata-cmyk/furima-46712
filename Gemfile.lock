@@ -157,6 +157,7 @@ GEM
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
     json (2.16.0)
+    kgio (2.11.4)
     language_server-protocol (3.17.0.5)
     logger (1.7.0)
     loofah (2.24.1)
@@ -204,8 +205,6 @@ GEM
     payjp (1.1.7)
       base64
       rest-client (~> 2.0)
-    pg (1.6.2-x86_64-darwin)
-    pg (1.6.2-x86_64-linux)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -257,6 +256,7 @@ GEM
       tsort (>= 0.2)
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
+    raindrops (0.20.1)
     rake (13.3.1)
     rdoc (6.15.1)
       erb
@@ -337,6 +337,9 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
+    unicorn (6.1.0)
+      kgio (~> 2.6)
+      raindrops (~> 0.7)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -371,7 +374,6 @@ DEPENDENCIES
   jbuilder
   mysql2 (~> 0.5)
   payjp
-  pg
   puma (>= 5.0)
   rails (~> 7.1.0)
   rspec-rails
@@ -381,6 +383,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  unicorn (= 6.1.0)
   web-console
 
 RUBY VERSION
