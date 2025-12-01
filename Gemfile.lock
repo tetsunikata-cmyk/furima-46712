@@ -370,6 +370,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  globalid (~> 1.2, >= 1.2.1)
   gon
   importmap-rails
   jbuilder
