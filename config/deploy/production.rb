@@ -61,3 +61,7 @@
 #   }
 
 server '3.114.157.112', user: 'ec2-user', roles: %w{app db web}
+set :ssh_options, {
+  keys: %w(~/.ssh/deploy_key),
+  forward_agent: true
+}
