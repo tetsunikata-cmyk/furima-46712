@@ -84,4 +84,3 @@ gem 'active_hash'
 gem 'payjp'
 gem 'gon'
 gem "nokogiri", force_ruby_platform: true
-gem 'globalid', '~> 1.2', '>= 1.2.1'
