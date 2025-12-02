@@ -363,6 +363,7 @@ DEPENDENCIES
   active_hash
   bootsnap
   capybara
+  cgi
   debug
   devise
   dotenv-rails
